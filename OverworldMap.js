@@ -28,6 +28,31 @@ class OverworldMap {
         const {x,y} = utils.nextPosition(currentX, currentY, direction);
         return this.walls[`${x},${y}`] || false;
     }
+
+    mountObjects() {
+        Object.keys(this.gameObjects).forEach( key => {
+            let object = this.gameObjects[key]
+
+            object.id = key
+
+            //TODO: determine if this object actually needs to be mounted
+            object.mount(this);
+        })
+    }
+
+    addWall(x, y) {
+        this.walls[`${x},${y}`] = true;
+    }
+
+    removeWall(x, y){
+        delete this.walls[`${x},${y}`];
+    }
+
+    moveWall(wasX,wasY,direction) {
+        this.removeWall(wasX, wasY);
+        const {x, y} = utils.nextPosition(wasX, wasY, direction);
+        this.addWall(x, y);
+    }
 }
 
 window.OverworldMaps = {
@@ -40,15 +65,30 @@ window.OverworldMaps = {
                 y: utils.withGrid(6),
                 isPlayerControlled: true
             }),
-            npc1: new Person({
+            npcA: new Person({
                 x: utils.withGrid(9),
                 y: utils.withGrid(9),
                 src: "./images/characters/people/npc1.png",
+                behaviorLoop: [
+                    {type: "stand", direction: "left", time: 800},
+                    {type: "stand", direction: "up", time: 800},
+                    {type: "stand", direction: "right", time: 1200},
+                    {type: "stand", direction: "up", time: 300},
+                ]
             }),
-            // npc2: new GameObject({
-            //     x: 7,
-            //     y: 8
-            // })
+            npcB: new GameObject({
+                x: utils.withGrid(7),
+                y: utils.withGrid(8),
+                src: "./images/characters/people/npc2.png",
+                behaviorLoop: [
+                    {type: "walk", direction: "left"},
+                    {type: "stand", direction: "up", time: 800},
+                    {type: "walk", direction: "up"},
+                    {type: "walk", direction: "right"},
+                    {type: "walk", direction: "down"},
+                ]
+            })
+
         },
         walls:{
             [utils.asGridCord(7,6)]: true,
