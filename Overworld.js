@@ -21,9 +21,11 @@ class Overworld {
       //Draw Lower Layer
       this.map.drawLowerImage(this.ctx, cameraPerson);
 
-      Object.values(this.map.gameObjects).forEach(object => {
+	  Object.values(this.map.gameObjects).sort((a, b) => {
+		return a.y - b.y;
+	  }).forEach(object => {
        object.sprite.draw(this.ctx, cameraPerson);
-      })
+	  })
 
       //Draw Game Objects
       this.map.drawUpperImage(this.ctx, cameraPerson);
@@ -35,6 +37,13 @@ class Overworld {
     step()
   }
 
+  bindActionInput() {
+	new KeyPressListener("Enter", () => {
+		//Is there a person to takl to?
+		this.map.checkForActionCutscene();
+	})
+  }
+
   init() {
     this.map = new OverworldMap(window.OverworldMaps.DemoRoom),
     this.map.mountObjects();
@@ -42,7 +51,20 @@ class Overworld {
     this.directionInput = new DirectionInput();
     this.directionInput.init();
 
+	//For Cutscenes
+	this.bindActionInput();
+
     this.startGameLoop();
+	// this.map.startCutScene([
+	// 	{who: "hero", "type": "walk", direction: "down"},
+	// 	{who: "hero", "type": "walk", direction: "down"},
+	// 	{who: "npcA", "type": "walk", direction: "left"},
+	// 	{who: "npcA", "type": "walk", direction: "left"},
+	// 	{who: "npcA", "type": "walk", direction: "left"},
+	// 	{who: "npcA", "type": "walk", direction: "left"},
+	// 	{who: "npcA", "type": "stand", direction: "up"},
+	// 	{type: "textMessage", text: "WHY HELLO THERE!"}
+	// ]);
 
     console.log(this.map.walls)
   }
