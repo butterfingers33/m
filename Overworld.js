@@ -38,33 +38,50 @@ class Overworld {
   }
 
   bindActionInput() {
-	new KeyPressListener("Enter", () => {
-		//Is there a person to takl to?
-		this.map.checkForActionCutscene();
-	})
+    new KeyPressListener("Enter", () => {
+      //Is there a person to takl to?
+      this.map.checkForActionCutscene();
+    })
+  }
+
+  bindHeroPositionCheck() {
+    document.addEventListener("PersonWalkingComplete", e => {
+      if(e.detail.whoId === "hero") {
+        // Hero's position has changed
+        this.map.checkForFootstepCutscene()
+        // console.log("Nice")
+      }
+    })
+  }
+
+  startMap(mapConfig) {
+    this.map = new OverworldMap(mapConfig);
+    this.map.overworld = this;
+    this.map.mountObjects();
   }
 
   init() {
-    this.map = new OverworldMap(window.OverworldMaps.DemoRoom),
-    this.map.mountObjects();
+
+    this.startMap(window.OverworldMaps.KitchenRoom);
 
     this.directionInput = new DirectionInput();
     this.directionInput.init();
 
-	//For Cutscenes
-	this.bindActionInput();
+    //For Cutscenes
+    this.bindActionInput();
+    this.bindHeroPositionCheck();
 
     this.startGameLoop();
-	// this.map.startCutScene([
-	// 	{who: "hero", "type": "walk", direction: "down"},
-	// 	{who: "hero", "type": "walk", direction: "down"},
-	// 	{who: "npcA", "type": "walk", direction: "left"},
-	// 	{who: "npcA", "type": "walk", direction: "left"},
-	// 	{who: "npcA", "type": "walk", direction: "left"},
-	// 	{who: "npcA", "type": "walk", direction: "left"},
-	// 	{who: "npcA", "type": "stand", direction: "up"},
-	// 	{type: "textMessage", text: "WHY HELLO THERE!"}
-	// ]);
+    this.map.startCutScene([
+      // {who: "hero", "type": "walk", direction: "down"},
+      // {who: "hero", "type": "walk", direction: "down"},
+      // {who: "npcA", "type": "walk", direction: "left"},
+      // {who: "npcA", "type": "walk", direction: "left"},
+      // {who: "npcA", "type": "walk", direction: "left"},
+      // {who: "npcA", "type": "walk", direction: "left"},
+      // {who: "npcA", "type": "stand", direction: "up"},
+      {type: "textMessage", text: "WHY HELLO THERE!"}
+    ]);
 
     console.log(this.map.walls)
   }

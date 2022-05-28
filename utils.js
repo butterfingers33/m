@@ -28,6 +28,13 @@ const utils = {
         return {x, y};
     },
 
+    oppositeDirection(direction) {
+        if(direction === "up") return "down";
+        if(direction === "down") return "up";
+        if(direction === "right") return "left";
+        return "right";
+    },
+
     emitEvent(name, detail) {
         const event = new CustomEvent(name, {
             detail
