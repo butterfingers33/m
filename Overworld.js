@@ -80,7 +80,8 @@ class Overworld {
       // {who: "npcA", "type": "walk", direction: "left"},
       // {who: "npcA", "type": "walk", direction: "left"},
       // {who: "npcA", "type": "stand", direction: "up"},
-      {type: "textMessage", text: "WHY HELLO THERE!"}
+      // {type: "textMessage", text: "WHY HELLO THERE!"}
+      {type: "changeMap", map : "DemoRoom"}
     ]);
 
     console.log(this.map.walls)
