@@ -21,11 +21,11 @@ class Overworld {
       //Draw Lower Layer
       this.map.drawLowerImage(this.ctx, cameraPerson);
 
-	  Object.values(this.map.gameObjects).sort((a, b) => {
-		return a.y - b.y;
-	  }).forEach(object => {
-       object.sprite.draw(this.ctx, cameraPerson);
-	  })
+      Object.values(this.map.gameObjects).sort((a, b) => {
+      return a.y - b.y;
+      }).forEach(object => {
+        object.sprite.draw(this.ctx, cameraPerson);
+      })
 
       //Draw Game Objects
       this.map.drawUpperImage(this.ctx, cameraPerson);
@@ -33,7 +33,9 @@ class Overworld {
       requestAnimationFrame(() => {
         step();
       })
+
     };
+
     step()
   }
 
