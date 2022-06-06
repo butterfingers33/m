@@ -1,3 +1,5 @@
+//MAPS will be 13 blocks long and 23 blocks wide
+
 class OverworldMap {
     constructor(config) {
         this.overworld = null;
@@ -13,20 +15,25 @@ class OverworldMap {
 
         this.isCutscenePlaying = false;
         this.cutsceneSpaces = config.cutsceneSpaces || {}
+
+        this.offsetx = config.offsetx || 0
+        this.offsety = config.offsety || 0
     }
 
     drawLowerImage(ctx, cameraPerson) {
         ctx.drawImage(
             this.lowerImage,
-            utils.withGrid(10.5) - cameraPerson.x,
-            utils.withGrid(6) - cameraPerson.y);
+            utils.withGrid(11 - this.offsetx) - cameraPerson.x,
+            utils.withGrid(6 - this.offsety) - cameraPerson.y);
+
+        // console.log(utils.withGrid(10.5) - cameraPerson.x - this.offsetx)
     }
 
     drawUpperImage(ctx, cameraPerson) {
         ctx.drawImage(
             this.upperImage,
-            utils.withGrid(10.5) - cameraPerson.x,
-            utils.withGrid(6) - cameraPerson.y);
+            utils.withGrid(11 - this.offsetx) - cameraPerson.x,
+            utils.withGrid(6 - this.offsety) - cameraPerson.y);
     }
 
     isSpaceTaken(currentX, currentY, direction) {
@@ -100,109 +107,33 @@ class OverworldMap {
 
 window.OverworldMaps = {
     DemoRoom: {
-        lowerSrc: "./images/maps/DemoLower.png",
-        upperSrc: "./images/maps/DemoUpper.png",
-        gameObjects: {
-            hero: new Person({
-                x: utils.withGrid(5),
-                y: utils.withGrid(6),
-                isPlayerControlled: true
-            }),
-            npcA: new Person({
-                x: utils.withGrid(9),
-                y: utils.withGrid(9),
-                src: "./images/characters/people/npc1.png",
-                behaviorLoop: [
-                    {type: "stand", direction: "left", time: 800},
-                    {type: "stand", direction: "up", time: 800},
-                    {type: "stand", direction: "right", time: 1200},
-                    {type: "stand", direction: "up", time: 300},
-                ],
-                talking: [
-                    {
-                        events: [
-                            {type: "textMessage", text: "I'm busy...", faceHero: "npcA"},
-                            {type: "textMessage", text: "Go away!"}
-                        ]
-                    }
-                ]
-            }),
-            npcB: new Person({
-                x: utils.withGrid(8),
-                y: utils.withGrid(5),
-                src: "./images/characters/people/npc2.png",
-                // behaviorLoop: [
-                //     {type: "walk", direction: "left"},
-                //     {type: "walk", direction: "left"},
-                //     // {type: "stand", direction: "up", time: 800},
-                //     {type: "walk", direction: "up"},
-                //     {type: "walk", direction: "up"},
-                //     {type: "walk", direction: "right"},
-                //     {type: "walk", direction: "right"},
-                //     {type: "walk", direction: "down"},
-                //     {type: "walk", direction: "down"},
-                // ],
-            })
-
-        },
-
-        walls:{
-            [utils.asGridCord(7,6)]: true,
-            [utils.asGridCord(8,6)]: true,
-            [utils.asGridCord(7,7)]: true,
-            [utils.asGridCord(8,7)]: true
-        },
-
-        cutsceneSpaces: {
-            [utils.asGridCord(7,4)]: [
-                {
-                    events: [
-                        {who: "npcB", type: "walk", direction: "left"},
-                        {who: "npcB", type: "stand", direction: "up", time: 500},
-                        {type: "textMessage", text: "You can't be in there!"},
-                        {who: "npcB", type: "walk", direction: "right", time: 500},
-                        {who: "hero", type: "walk", direction: "down"},
-                        {who: "hero", type: "walk", direction: "left"},
-                    ]
-                }
-            ],
-
-            [utils.asGridCord(5, 10)]: [
-                {
-                    events: [
-                        {type: "changeMap", map: "KitchenRoom"}
-                    ]
-                }
-            ]
-        }
-    },
-
-    KitchenRoom: {
-        lowerSrc: "./images/maps/KitchenLower.png",
+        lowerSrc: "./images/maps/card.png",
         upperSrc: "./images/maps/KitchenUpper.png",
+        offsetx: 5,
+        offsety: 10,
         gameObjects: {
             hero: new Person({
-                x: utils.withGrid(5),
-                y: utils.withGrid(5),
+                x: utils.withGrid(0),
+                y: utils.withGrid(0),
+                src: "./images/characters/people/npc1.png",
                 isPlayerControlled: true
             }),
-            npc1: new Person({
-                x: utils.withGrid(9),
-                y: utils.withGrid(9),
-                src: "./images/characters/people/npc1.png"
-            }),
-            npc2: new Person({
-                x: utils.withGrid(5),
-                y: utils.withGrid(8),
-                src: "./images/characters/people/npc2.png",
-                talking : [
-                    {
-                        events: [
-                            {type: "textMessage", text: "You made it!", faceHero: "npc2"}
-                        ]
-                    }
-                ]
+            rush: new Person({
+                x: utils.withGrid(10),
+                y: utils.withGrid(10),
+                src: "./images/characters/people/npc3.png",
+                // talking: [
+                //     {
+                //         events: [
+                //             {type: "textMessage", text: "Happy Birthday!", faceHero: "rush"},
+                //             {type: "textMessage", text: "Hope you like this game!", faceHero: "rush"}
+                //         ]
+                //     }
+                // ]
             })
-        }   
+
+        },
+        walls:{},
+        cutsceneSpaces: {}
     },
 }

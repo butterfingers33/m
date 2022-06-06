@@ -14,7 +14,7 @@ class GameObject {
     this.behaviorLoop = config.behaviorLoop || [];
     this.behaviorLoopIndex = 0
 
-    this.talking = config.talking || []
+    this.talking = config.talking || [] // Add talking or behavior loop to a person
   }
 
   mount(map) {

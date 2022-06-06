@@ -64,7 +64,7 @@ class Overworld {
 
   init() {
 
-    this.startMap(window.OverworldMaps.KitchenRoom);
+    this.startMap(window.OverworldMaps.DemoRoom);
 
     this.directionInput = new DirectionInput();
     this.directionInput.init();
@@ -75,15 +75,12 @@ class Overworld {
 
     this.startGameLoop();
     this.map.startCutScene([
-      // {who: "hero", "type": "walk", direction: "down"},
-      // {who: "hero", "type": "walk", direction: "down"},
-      // {who: "npcA", "type": "walk", direction: "left"},
-      // {who: "npcA", "type": "walk", direction: "left"},
-      // {who: "npcA", "type": "walk", direction: "left"},
-      // {who: "npcA", "type": "walk", direction: "left"},
-      // {who: "npcA", "type": "stand", direction: "up"},
-      // {type: "textMessage", text: "WHY HELLO THERE!"}
-      {type: "changeMap", map : "DemoRoom"}
+      {type: "textMessage", text: "Hey man, I'm Sol, Pixelated M."},
+      // {type: "imagePopup", src: "./images/m/confused.png"}
+      // {type: "textMessage", text: "It's my Birthday today!"},
+      // {type: "textMessage", text: "My boyfriend thinks I'm very indecisive"},
+      // {who: "hero", type: "talk", text: "alright"}
+      // {type: "changeMap", map : "DemoRoom"}
     ]);
 
     console.log(this.map.walls)
