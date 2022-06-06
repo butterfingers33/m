@@ -105,11 +105,12 @@ class OverworldMap {
     }
 }
 
+window.predefined_walls = {}
 window.OverworldMaps = {
     DemoRoom: {
-        lowerSrc: "./images/maps/card.png",
+        lowerSrc: "./images/maps/cardUpper.png",
         upperSrc: "./images/maps/KitchenUpper.png",
-        offsetx: 5,
+        offsetx: 11,
         offsety: 10,
         gameObjects: {
             hero: new Person({
@@ -122,18 +123,28 @@ window.OverworldMaps = {
                 x: utils.withGrid(10),
                 y: utils.withGrid(10),
                 src: "./images/characters/people/npc3.png",
-                // talking: [
-                //     {
-                //         events: [
-                //             {type: "textMessage", text: "Happy Birthday!", faceHero: "rush"},
-                //             {type: "textMessage", text: "Hope you like this game!", faceHero: "rush"}
-                //         ]
-                //     }
-                // ]
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text: "Happy Birthday!", faceHero: "rush"},
+                            {type: "textMessage", text: "Hope you like this game!", faceHero: "rush"}
+                        ]
+                    }
+                ]
             })
 
         },
-        walls:{},
+        walls: window.predefined_walls,
         cutsceneSpaces: {}
     },
+}
+
+for(let i = 0; i < 33; ++i){
+    predefined_walls[utils.asGridCord(-1, i)] = true
+    predefined_walls[utils.asGridCord(23, i)] = true
+}
+
+for(let i = 0; i < 45; ++i){
+    predefined_walls[utils.asGridCord(i, -1)] = true
+    predefined_walls[utils.asGridCord(i, 13)] = true
 }
