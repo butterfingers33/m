@@ -54,6 +54,22 @@ class OverworldEvent {
         image.init(document.querySelector(".game-container"))
     }
 
+    textMessageLink(resolve) {
+
+        if (this.event.faceHero) {
+            const obj = this.map.gameObjects[this.event.faceHero];
+            obj.direction = utils.oppositeDirection(this.map.gameObjects["hero"].direction)
+        }
+
+        const message = new TextMessageLink({
+            text: this.event.text,
+            link: this.event.link,
+            onComplete: () => resolve(),
+        })
+        message.init(document.querySelector(".game-container"));
+    }
+
+
     imagePopupWithText(resolve) {
         const image = new ImagePopupWithText({
             text: this.event.text,

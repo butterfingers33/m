@@ -75,12 +75,43 @@ class Overworld {
 
     this.startGameLoop();
     this.map.startCutScene([
-      // {type: "textMessage", text: "Hey man, I'm Sol, Pixelated M."},
-      {type: "imagePopupWithText", src: "./images/m/confused.png", text: "Nice"}
-      // {type: "textMessage", text: "It's my Birthday today!"},
-      // {type: "textMessage", text: "My boyfriend thinks I'm very indecisive"},
-      // {who: "hero", type: "talk", text: "alright"}
-      // {type: "changeMap", map : "DemoRoom"}
+      // {type: "textMessage", text: "Sol: Hey man, I'm Sol, Pixelated Manal..."},
+      // {type: "textMessage", text: "Sol: Use arrow keys to... Wait a minute..."},
+      // {type: "textMessage", text: "Sol: I think I left my consciousness in the... fifth dimension..."},
+      // {type: "textMessage", text: "Sol: Noooo stop singing TT"},
+      // {type: "textMessage", text: "Sol: Where tf am I?"},
+      // {type: "stand", who: "hero", direction : "left", time: 800},
+      // {type: "stand", who: "hero", direction : "right", time: 600},
+      // {type: "textMessage", text: "Anyone there?"},
+      // {type: "stand", who: "hero", direction: "up", time: 500},
+      // {type: "stand", who: "hero", direction: "right", time: 500},
+      // {type: "textMessage", text: "Sol: hey you!?"},
+      // {type: "walk", direction: "right", who: "hero"},
+      // {type: "walk", direction: "right", who: "hero"},
+      // {type: "walk", direction: "right", who: "hero"},
+      // {type: "walk", direction: "right", who: "hero"},
+      // {type: "walk", direction: "right", who: "hero"},
+      // {type: "walk", direction: "right", who: "hero"},
+      // {type: "walk", direction: "right", who: "hero"},
+      // {type: "stand", direction: "left", who: "rush"},
+      // {type: "textMessage", text: "Rue: Hey, whats up?"},
+      // {type: "textMessage", text: "Sol: What the hell is going on, who are you?"},
+      // {type: "textMessage", text: "Rue: I am Rue!"},
+      // {type: "textMessage", text: "Sol: Baby why are you all pixels, where are we?! sjsjsj"},
+      // {type: "textMessage", text: "Rue: You are dreaming!"},
+      // {type: "textMessage", text: "Sol: What are you doing in my dream?"},
+      // {type: "textMessage", text: "Rue: Idk, you tell me!"},
+      // {type: "textMessage", text: "Sol: How do I wake up?"},
+      // {type: "textMessage", text: "Rue: Why do you want to?"},
+      // {type: "textMessage", text: "Sol: omg, is this how my lil fantasy world looks like sjsjsj"},
+      // // {type: "textMessage", text: "Sol: What am I gonna do here TT."},
+      // {type: "textMessage", text: "Sol: You look cute."},
+      // {type: "textMessage", text: "Rue: I am a fragment of your imagination here :)"},
+      // {type: "textMessage", text: "Rue: You've made yourself cute tooo :3"},
+      // {type: "textMessage", text: "Rue: Go roam around and have fun!"},
+      // {type: "stand", direction : "down", who: "hero", time: 800},
+      // {type: "textMessage", text: "Sol: Let's see ..."},
+      // {type: "stand", direction: "down", who: "rush", time: 800}
     ]);
 
     console.log(this.map.walls)

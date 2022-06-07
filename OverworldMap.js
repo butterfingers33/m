@@ -122,18 +122,57 @@ window.OverworldMaps = {
                 x: utils.withGrid(10),
                 y: utils.withGrid(10),
                 src: "./images/characters/people/npc3.png",
-                // talking: [
-                //     {
-                //         events: [
-                //             {type: "textMessage", text: "Happy Birthday!", faceHero: "rush"},
-                //             {type: "textMessage", text: "Hope you like this game!", faceHero: "rush"}
-                //         ]
-                //     }
-                // ]
+                talking: [
+                    {
+                        events: [
+                            {type: "textMessage", text: "Happy Birthday!", faceHero: "rush"},
+                            {type: "textMessage", text: "Hope you like this game!", faceHero: "rush"}
+                        ]
+                    }
+                ]
+            }),
+            spotify: new Person({
+                x: utils.withGrid(11),
+                y: utils.withGrid(7),
+                src: "./images/characters/people/empty.png",
+                useShadow: "false",
+                talking : [
+                    {
+                        events: [
+                            {
+                                type: "textMessageLink", text: "Mainstream Hindi Music",
+                                link: "https://open.spotify.com/playlist/37i9dQZF1EQr37EUzZ1Yhg?si=14e7b0bdbad64670"}
+                        ]
+                    }
+                ]
             })
-
         },
         walls: window.bigmapwalls1(),
-        cutsceneSpaces: {}
+        cutsceneSpaces: {
+            [utils.asGridCord(1, 5)]: [
+                {
+                    events: window.artgallery()
+                }
+            ],
+            [utils.asGridCord(11, 6)] : [
+                {
+                    events: window.nearspotify()
+                }
+            ],
+            [utils.asGridCord(19, 5)] : [
+                {
+                    events: window.shopevents()
+                }
+            ],
+            [utils.asGridCord(16, 2)] : [
+                {
+                    events: [
+                        {type: "textMessage", text: "Ill-formed dream terrain, beware!"}
+                    ]
+                }
+            ]
+        }
     },
 }
+
+console.log(window.artgallery())
