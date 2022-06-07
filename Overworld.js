@@ -75,8 +75,8 @@ class Overworld {
 
     this.startGameLoop();
     this.map.startCutScene([
-      {type: "textMessage", text: "Hey man, I'm Sol, Pixelated M."},
-      // {type: "imagePopup", src: "./images/m/confused.png"}
+      // {type: "textMessage", text: "Hey man, I'm Sol, Pixelated M."},
+      {type: "imagePopupWithText", src: "./images/m/confused.png", text: "Nice"}
       // {type: "textMessage", text: "It's my Birthday today!"},
       // {type: "textMessage", text: "My boyfriend thinks I'm very indecisive"},
       // {who: "hero", type: "talk", text: "alright"}

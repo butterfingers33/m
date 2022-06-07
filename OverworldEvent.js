@@ -54,6 +54,15 @@ class OverworldEvent {
         image.init(document.querySelector(".game-container"))
     }
 
+    imagePopupWithText(resolve) {
+        const image = new ImagePopupWithText({
+            text: this.event.text,
+            src: this.event.src,
+            onComplete: () => resolve()
+        })
+
+        image.init(document.querySelector(".game-container"))
+    }
 
     walk(resolve) {
         const who = this.map.gameObjects[ this.event.who ];
