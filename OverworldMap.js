@@ -125,8 +125,19 @@ window.OverworldMaps = {
                 talking: [
                     {
                         events: [
+                            {type: "textMessage", text: "We're not perfect, we're not completely same, but you warm my soul.", faceHero: "rush"},
+                            {type: "textMessage", text: "Everyone is a stranger to me.", faceHero: "rush"},
+                            {type: "textMessage", text: "You are the most familiar of them all.", faceHero: "rush"},
+                            {type: "textMessage", text: "You're cute", faceHero: "rush"},
+                            {type: "textMessage", text: "You're smart", faceHero: "rush"},
+                            {type: "textMessage", text: "You're mature", faceHero: "rush"},
+                            {type: "textMessage", text: "You're childish", faceHero: "rush"},
+                            {type: "textMessage", text: "You're adamant", faceHero: "rush"},
+                            {type: "textMessage", text: "But you understand", faceHero: "rush"},
+                            {type: "textMessage", text: "You're the perfect blend.", faceHero: "rush"},
+                            {type: "textMessage", text: "I love you!", faceHero: "rush"},
+                            {type: "textMessage", text: "The day is yours, have fun!", faceHero: "rush"},
                             {type: "textMessage", text: "Happy Birthday!", faceHero: "rush"},
-                            {type: "textMessage", text: "Hope you like this game!", faceHero: "rush"}
                         ]
                     }
                 ]
