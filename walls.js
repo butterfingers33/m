@@ -99,7 +99,7 @@ window.nearspotify = () => {
 window.shopevents = () => {
     let events = [
         {type: "textMessage", text: "Dream Shop: Limited Scenarios only, you are still an amateur dreamer :)"},
-        {type: "textMessage", text: "Sol: sjsjs TT show me anything cute have"},
+        {type: "textMessage", text: "Sol: sjsjs TT show me anything cute you have"},
         {type: "imagePopupWithText", src: "./images/m/shower.jpg", text: "Shower Dream"},
         {type: "imagePopupWithText", src: "./images/m/romanticPicnic.jpg", text: "Romantic Picnic"},
         {type: "imagePopupWithText", src: "./images/m/cuteDream.png", text: "Making Cute Reel"},
