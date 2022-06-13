@@ -151,8 +151,8 @@ window.OverworldMaps = {
                     {
                         events: [
                             {
-                                type: "textMessageLink", text: "Mainstream Hindi Music",
-                                link: "https://open.spotify.com/playlist/37i9dQZF1EQr37EUzZ1Yhg?si=14e7b0bdbad64670"}
+                                type: "textMessageLink", text: "Finally! Use it Well! <333",
+                                link: "https://www.spotify.com/in-en/duo/invite/XaYbB7y8yY1Xx96/"}
                         ]
                     }
                 ]
